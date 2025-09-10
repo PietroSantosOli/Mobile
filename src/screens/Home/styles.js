@@ -35,9 +35,10 @@ export const styles = StyleSheet.create({
     paddingTop:10
   },
   movieText:{
-    fontSize:14,
+    fontSize:18,
     color:"#fff",
     fontWeight:"700",
-    padding:15
+    marginLeft: 20,
+    marginTop: 15
   }
 });

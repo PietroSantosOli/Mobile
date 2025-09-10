@@ -4,6 +4,9 @@ import AmazonLogo from "../../assets/amazon_logo.png";
 import MovieTheWheel from "../../assets/movies/the_wheel_of_time.png";
 import {styles} from "./styles"
 import { MOVIESWATCHING } from "../../utils/moviesWatching";
+import { MOVIESWATCH } from "../../utils/moviesWatch";
+import { MOVIESCRIME } from "../../utils/moviesCrimes";
+import { ACABARAMCHEGAR } from "../../utils/acabaramChegar";
 import { MoviesCard } from "../../components/MoviesCard";
 
 export const Home = () => {
@@ -38,13 +41,39 @@ export const Home = () => {
       </View>
 <ScrollView>
 {/* ------- Thumbnails ------- */}
-      <TouchableOpacity style={styles.movieImageThumbnail}>
-        <Image source={MovieTheWheel}></Image>
-      </TouchableOpacity>
+      
+        <Text style = {styles.movieText}>Acabaram de chegar</Text>
+      <FlatList 
+      data={ACABARAMCHEGAR} 
+      keyExtractor={(item) => item.id}
+      renderItem={({item}) => <MoviesCard movieURL = {item.moviesURL}/>}
+      horizontal //deixa a lista de rolagem horizontal
+      showsHorizontalScrollIndicator={false}
+      style = {styles.contentList}
+      />
+      
 
 <Text style = {styles.movieText}>Continue Assistindo...</Text>
       <FlatList 
       data={MOVIESWATCHING} 
+      keyExtractor={(item) => item.id}
+      renderItem={({item}) => <MoviesCard movieURL = {item.moviesURL}/>}
+      horizontal //deixa a lista de rolagem horizontal
+      showsHorizontalScrollIndicator={false}
+      style = {styles.contentList}
+      />
+<Text style = {styles.movieText}>Assista em outro idioma</Text>
+      <FlatList 
+      data={MOVIESWATCH} 
+      keyExtractor={(item) => item.id}
+      renderItem={({item}) => <MoviesCard movieURL = {item.moviesURL}/>}
+      horizontal //deixa a lista de rolagem horizontal
+      showsHorizontalScrollIndicator={false}
+      style = {styles.contentList}
+      />
+<Text style = {styles.movieText}>Filmes de crimes</Text>
+      <FlatList 
+      data={MOVIESCRIME} 
       keyExtractor={(item) => item.id}
       renderItem={({item}) => <MoviesCard movieURL = {item.moviesURL}/>}
       horizontal //deixa a lista de rolagem horizontal
